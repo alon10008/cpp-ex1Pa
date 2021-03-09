@@ -32,13 +32,20 @@ TEST_CASE("Good snowman code:") {
     CHECK(nonspace(snowman(12121212)) == string("_===_(..o)/<(:)(\"\")"));
     CHECK(nonspace(snowman(34343434)) == string("_/_\\(O-)/(><)()"));
     CHECK(nonspace(snowman(12344321)) == string("_===_(O.-)(][)\\(:)"));
+    CHECK(nonspace(snowman(11223344)) == string("_===_(o,o)/()\\()"));
   
 }
 
 TEST_CASE("Bad snowman code:") {
 
-    CHECK_THROWS(snowman(11111110));
-    CHECK_THROWS(snowman(44444445));
+    CHECK_THROWS(snowman(51111111));
+    CHECK_THROWS(snowman(26222222));
+    CHECK_THROWS(snowman(33733333));
+    CHECK_THROWS(snowman(44484444));
+    CHECK_THROWS(snowman(11119111));
+    CHECK_THROWS(snowman(22222022));
+    CHECK_THROWS(snowman(33333353));
+    CHECK_THROWS(snowman(44444446));
     CHECK_THROWS(snowman(1));
     CHECK_THROWS(snowman(22));
     CHECK_THROWS(snowman(333));
@@ -48,14 +55,9 @@ TEST_CASE("Bad snowman code:") {
     CHECK_THROWS(snowman(3333333));
     CHECK_THROWS(snowman(444444444));
     CHECK_THROWS(snowman(-11111111));
-    CHECK_FALSE(snowman(11111111) == snowman(11111112));
-    CHECK_FALSE(snowman(11111111) == snowman(11111121));
-    CHECK_FALSE(snowman(11111111) == snowman(11111211));
-    CHECK_FALSE(snowman(11111111) == snowman(11112111));
-    CHECK_FALSE(snowman(11111111) == snowman(11121111));
-    CHECK_FALSE(snowman(11111111) == snowman(11211111));
-    CHECK_FALSE(snowman(11111111) == snowman(12111111));
-    CHECK_FALSE(snowman(11111111) == snowman(21111111));
+    CHECK_THROWS(snowman(-22222222));
+    CHECK_THROWS(snowman(-33333333));
+    CHECK_THROWS(snowman(-44444444));
 
 }
 
